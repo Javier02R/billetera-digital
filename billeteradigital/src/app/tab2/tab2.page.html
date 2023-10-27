@@ -1,0 +1,56 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      Transferencia
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Transferencia</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-toolbar>
+    <ion-button class="user" color="warning">
+      <ion-icon slot="start" name="person" size="small"></ion-icon>
+      Andrea Paz
+    </ion-button>
+    <ion-button (click)="hacerTransferencia = !hacerTransferencia" slot="end" class="ion-small" fill="clear" color="warning-shade">Transferir</ion-button>
+  </ion-toolbar>
+
+  <!-- Formulario de transferencia -->
+  <ion-card *ngIf="hacerTransferencia" class="realizar-transferencia">
+    <ion-card-content>
+      <!-- Campo de cuenta de origen -->
+      <ion-item>
+        <ion-label position="floating">Cuenta de origen</ion-label>
+        <ion-input [(ngModel)]="cuentaOrigen" type="text"></ion-input>
+      </ion-item>
+
+      <!-- Campo de cuenta de destino -->
+      <ion-item>
+        <ion-label position="floating">Cuenta de destino</ion-label>
+        <ion-input [(ngModel)]="cuentaDestino" type="text"></ion-input>
+      </ion-item>
+
+      <!-- Campo de monto de transferencia -->
+      <ion-item>
+        <ion-label position="floating">Monto de transferencia</ion-label>
+        <ion-input [(ngModel)]="montoTransferencia" type="number"></ion-input>
+      </ion-item>
+    </ion-card-content>
+    <ion-row justify-content="center ">
+      <ion-button (click)="realizarTransferencia()" class="small" fill="clear" color="success">Realizar</ion-button>
+      <ion-button (click)="cancelarTransferencia()" class="small" fill="clear" color="danger">Cancelar</ion-button>
+    </ion-row>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let transferencia of historial">
+      {{ transferencia.cuentaOrigen }} ha transferido {{ transferencia.monto }} $ a {{ transferencia.cuentaDestino }}
+    </ion-item>
+  </ion-list>
+</ion-content>

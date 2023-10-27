@@ -1,0 +1,12 @@
+.support-card{
+    background: linear-gradient(to top, rgba(21, 1, 53, 0.781), rgba(6, 2, 46, 0.897)); 
+    backdrop-filter: blur(3px);
+    padding: 10px;
+    border: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    width: 90%; 
+    max-width: 400px; 
+    flex-direction: column;
+    align-items: center;
+}

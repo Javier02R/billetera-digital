@@ -1,0 +1,54 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      Cuentas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Cuentas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-toolbar>
+  <ion-button class="user" color="warning">
+    <ion-icon slot="start" name="person" size="small"></ion-icon>
+    Andrea Paz
+  </ion-button>
+  <ion-button (click)="mostrarFormulario = !mostrarFormulario" slot="end" class="ion-small" fill="clear" color="warning-shade">Agregar Cuenta</ion-button>
+</ion-toolbar>
+
+  <ion-card *ngFor="let cuenta of cuentas">
+    <ion-row class="ion-justify-content-left">
+      <ion-header>
+        <ion-card-subtitle>{{ cuenta.nombre }}</ion-card-subtitle>
+        <ion-card-title>{{ cuenta.numero_cuenta }}</ion-card-title>
+      </ion-header>
+      <ion-card-content>Saldo disponible: {{ cuenta.saldo_disponible }}$</ion-card-content>
+    </ion-row>
+  </ion-card>
+  <!-- Formulario de ingreso de datos -->
+  <ion-card *ngIf="mostrarFormulario" class="agregar-cuenta-form">
+    <ion-item>
+      <ion-label position="floating">Nombre de cuenta</ion-label>
+      <ion-input [(ngModel)]="nombreCuenta" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Número de cuenta</ion-label>
+      <ion-input [(ngModel)]="numeroCuenta" type="text"></ion-input>
+      
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Saldo disponible</ion-label>
+      <ion-input [(ngModel)]="saldoDisponible" type="number"></ion-input>
+    </ion-item>
+    <!-- Botón para guardar la cuenta -->
+    <ion-row justify-content="center">
+      <ion-button (click)="guardarCuenta()" class="small" fill="clear" color="success">Guardar</ion-button>
+      <ion-button (click)="cancelarCuenta()" class="small" fill="clear" color="danger">Cancelar</ion-button>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
