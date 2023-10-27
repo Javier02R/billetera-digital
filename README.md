@@ -11,8 +11,8 @@ App de billetera digital usando ionic + angular, con base de datos en FireBase.
 
 
 ## Capturas de Pantalla
-![Captura de Pantalla 1](/cuentas.png)
-![Captura de Pantalla 2](/transferencias.png)
+![Tab - Cuentas](/cuentas.png)
+![Tab - Transferencias](/Transferencias.png)
 
 ## Características
 - Muestra la informacion de cuentas del usuario.
